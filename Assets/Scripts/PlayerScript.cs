@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject greenPrefab;
     public GameObject yellowPrefab;
     public GameObject ballPrefab;
+    public GameObject redModPrefab;
 
     static bool gameStarted = false;
 
@@ -106,6 +107,7 @@ public class PlayerScript : MonoBehaviour
 
     void StartLevel()
     {
+        
         SetBackground();
         var yMax = Camera.main.orthographicSize * 0.8f;
         var xMax = Camera.main.orthographicSize * Camera.main.aspect * 0.85f;
@@ -113,6 +115,7 @@ public class PlayerScript : MonoBehaviour
         CreateBlocks(redPrefab, xMax, yMax, 1 + level, 10);
         CreateBlocks(greenPrefab, xMax, yMax, 1 + level, 12);
         CreateBlocks(yellowPrefab, xMax, yMax, 2 + level, 15);
+        CreateBlocks(redModPrefab, xMax, yMax, (int)(Random.value * 4) + 1, 4);
         CreateBalls();
 
     }

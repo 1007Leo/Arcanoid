@@ -16,10 +16,46 @@ public class BlockScript : MonoBehaviour
         if (textObject != null)
         {
             textComponent = textObject.GetComponent<Text>();
-            textComponent.text = hitsToDestroy.ToString();
+            if (!textComponent.text.Equals("O"))
+                textComponent.text = hitsToDestroy.ToString();
         }
         playerScript = GameObject.FindGameObjectWithTag("Player")
             .GetComponent<PlayerScript>();
+    }
+
+    bool allModBlocksIsX()
+    {
+        var blocksArray = GameObject.FindGameObjectsWithTag("Block");
+
+        if (blocksArray.Length == 0)
+            return false;
+
+        foreach (var block in blocksArray)
+        {
+            BlockScript curScript = block.gameObject.GetComponent<BlockScript>();
+            if (curScript.textComponent != null && curScript.textComponent.text.Equals("O"))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void deleteAllModBlocks()
+    {
+        var blocksArray = GameObject.FindGameObjectsWithTag("Block");
+        if (blocksArray.Length == 0)
+            return;
+
+        foreach (var block in blocksArray)
+        {
+            BlockScript curScript = block.gameObject.GetComponent<BlockScript>();
+            if (curScript.textComponent != null && curScript.textComponent.text.Equals("X"))
+            {
+                Destroy(block.gameObject);
+                playerScript.BlockDestroyed(points);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -32,7 +68,22 @@ public class BlockScript : MonoBehaviour
         }
         else if (textComponent != null)
         {
-            textComponent.text = hitsToDestroy.ToString();
+            if (textComponent.text.Equals("O"))
+            {
+                textComponent.text = "X";
+                if (allModBlocksIsX())
+                {
+                    deleteAllModBlocks();
+                }
+            }
+            else if (textComponent.text.Equals("X"))
+            {
+                textComponent.text = "O";
+            }
+            else
+            {
+                textComponent.text = hitsToDestroy.ToString();
+            }
         }
     }
 }
