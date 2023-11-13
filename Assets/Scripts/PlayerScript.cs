@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -19,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject yellowPrefab;
     public GameObject ballPrefab;
     public GameObject redModPrefab;
+    public GameObject baseBonusPrefab;
 
     static bool gameStarted = false;
 
@@ -82,6 +81,13 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    public void CreateBaseBonusObject(Vector3 pos)
+    {
+        var obj = Instantiate(baseBonusPrefab);
+        var bonusBaseObj = obj.GetComponent<BonusBase>();
+        bonusBaseObj.transform.position = pos;
+    }
+
     void CreateBalls()
     {
         int count = 2;
@@ -107,7 +113,6 @@ public class PlayerScript : MonoBehaviour
 
     void StartLevel()
     {
-        
         SetBackground();
         var yMax = Camera.main.orthographicSize * 0.8f;
         var xMax = Camera.main.orthographicSize * Camera.main.aspect * 0.85f;

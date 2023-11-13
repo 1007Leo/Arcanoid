@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,6 +61,10 @@ public class BlockScript : MonoBehaviour
         hitsToDestroy--;
         if (hitsToDestroy == 0)
         {
+            if (gameObject.name.Contains("Green"))
+            {
+                playerScript.CreateBaseBonusObject(transform.position);
+            }
             Destroy(gameObject);
             playerScript.BlockDestroyed(points);
         }
