@@ -83,9 +83,12 @@ public class PlayerScript : MonoBehaviour
 
     public void CreateBaseBonusObject(Vector3 pos)
     {
-        var obj = Instantiate(baseBonusPrefab);
-        var bonusBaseObj = obj.GetComponent<BonusBase>();
-        bonusBaseObj.transform.position = pos;
+        if (baseBonusPrefab != null)
+        {
+            var obj = Instantiate(baseBonusPrefab);
+            var bonusBaseObj = obj.GetComponent<BonusBase>();
+            bonusBaseObj.transform.position = pos;
+        }
     }
 
     void CreateBalls()

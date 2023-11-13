@@ -3,10 +3,8 @@ using UnityEngine.UI;
 
 public class BonusBase : MonoBehaviour
 {
-    //public GameObject textObject;
-    //Text textComponent;
-
-    public Vector2 bonusObjectInitialForce;
+    public GameObject textObject;
+    Text textComponent;
     Rigidbody2D rb;
     GameObject playerObject;
 
@@ -32,6 +30,11 @@ public class BonusBase : MonoBehaviour
 
     void Start()
     {
+        if (textObject != null)
+        {
+            textComponent = textObject.GetComponent<Text>();
+            textComponent.text = "+100";
+        }
         rb = GetComponent<Rigidbody2D>();
         playerObject = GameObject.FindGameObjectWithTag("Player");
         rb.isKinematic = false;
