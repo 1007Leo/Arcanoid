@@ -15,7 +15,7 @@ public class BonusBase : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             BonusActivate();
             Destroy(gameObject);
@@ -33,7 +33,6 @@ public class BonusBase : MonoBehaviour
         if (textObject != null)
         {
             textComponent = textObject.GetComponent<Text>();
-            textComponent.text = "+100";
         }
         rb = GetComponent<Rigidbody2D>();
         playerObject = GameObject.FindGameObjectWithTag("Player");

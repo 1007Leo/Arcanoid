@@ -18,6 +18,9 @@ public class PlayerScript : MonoBehaviour
     public GameObject ballPrefab;
     public GameObject redModPrefab;
     public GameObject baseBonusPrefab;
+    public GameObject fireBonusPrefab;
+    public GameObject steelBonusPrefab;
+    public GameObject normBonusPrefab;
 
     static bool gameStarted = false;
 
@@ -91,7 +94,36 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void CreateBalls()
+    public void CreateFireBonusObject(Vector3 pos)
+    {
+        if (fireBonusPrefab != null)
+        {
+            var obj = Instantiate(fireBonusPrefab);
+            var fireBonus = obj.GetComponent<FireBonus>();
+            fireBonus.transform.position = pos;
+        }
+    }
+
+	public void CreateSteelBonusObject(Vector3 pos)
+	{
+		if (!steelBonusPrefab) return;
+
+		var obj = Instantiate(steelBonusPrefab);
+		var steelBonus = obj.GetComponent<SteelBonus>();
+		steelBonus.transform.position = pos;
+	}
+
+	public void CreateNormBonusObject(Vector3 pos)
+	{
+		if (normBonusPrefab != null)
+		{
+			var obj = Instantiate(normBonusPrefab);
+			var normBonus = obj.GetComponent<NormBonus>();
+			normBonus.transform.position = pos;
+		}
+	}
+
+  void CreateBalls()
     {
         int count = 2;
         if (gameData.balls == 1)
@@ -125,7 +157,6 @@ public class PlayerScript : MonoBehaviour
         CreateBlocks(yellowPrefab, xMax, yMax, 2 + level, 15);
         CreateBlocks(redModPrefab, xMax, yMax, (int)(Random.value * 4) + 1, 4);
         CreateBalls();
-
     }
 
     public void BallDestroyed()
@@ -183,7 +214,8 @@ public class PlayerScript : MonoBehaviour
     IEnumerator BlockDestroyedCoroutine()
     {
         yield return new WaitForSeconds(0.1f);
-        if (GameObject.FindGameObjectsWithTag("Block").Length == 0)
+        int blockCount = GameObject.FindGameObjectsWithTag("Block").Length + GameObject.FindGameObjectsWithTag("ModBlock").Length;
+        if (blockCount == 0)
         {
             if (level < maxLevel)
             {
@@ -261,7 +293,19 @@ public class PlayerScript : MonoBehaviour
         {
             Application.Quit();
         }
-    }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+			CreateFireBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+			CreateSteelBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+			CreateNormBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
+        }
+  }
 
     private void OnApplicationQuit()
     {

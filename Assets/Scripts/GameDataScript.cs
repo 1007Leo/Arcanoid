@@ -1,4 +1,7 @@
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 [CreateAssetMenu(fileName = "GameData", menuName = "GameData", order = 51)]
 public class GameDataScript : ScriptableObject
@@ -6,12 +9,17 @@ public class GameDataScript : ScriptableObject
     public bool saveLoad;
     public bool music = true;
     public bool sound = true;
-
+ 
     public int level = 1;
     public int balls = 6;
     public int points = 0;
     public int pointsToBall = 0;
-
+    public int baseBonusRate = 1;
+    public int fireBonusRate = 1;
+    public int normBonusRate = 1;
+    public int steelBonusRate = 1;
+    public int noBonusRate = 1;
+    
     public void Save()
     {
         PlayerPrefs.SetInt("level", level);
@@ -22,7 +30,7 @@ public class GameDataScript : ScriptableObject
         PlayerPrefs.SetInt("sound", sound ? 1 : 0);
     }
 
-    public void Load()
+  public void Load()
     {
         level = PlayerPrefs.GetInt("level", 1);
         balls = PlayerPrefs.GetInt("balls", 6);
@@ -38,5 +46,32 @@ public class GameDataScript : ScriptableObject
         balls = 6;
         points = 0;
         pointsToBall = 0;
+    }
+
+    public int getBonusType()
+    {
+        int sumRates = baseBonusRate + fireBonusRate + normBonusRate + steelBonusRate + noBonusRate;
+        int bonus = Random.Range(0, sumRates);
+        
+        if (bonus < noBonusRate)
+        {
+            return 0;
+        } 
+        else if (bonus < noBonusRate + baseBonusRate)
+        {
+            return 1;
+        } 
+        else if (bonus < noBonusRate + baseBonusRate + fireBonusRate)
+        {
+            return 2;
+        }
+        else if ( bonus < noBonusRate + baseBonusRate + fireBonusRate + normBonusRate)
+        {
+            return 3;
+        }
+        else
+        {
+            return 4;
+        }
     }
 }

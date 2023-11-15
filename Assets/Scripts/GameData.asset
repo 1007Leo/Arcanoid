@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   saveLoad: 1
-  music: 1
-  sound: 1
+  music: 0
+  sound: 0
   level: 1
   balls: 6
   points: 0
   pointsToBall: 0
+  baseBonusRate: 1
+  fireBonusRate: 1
+  normBonusRate: 1
+  steelBonusRate: 1
+  noBonusRate: 10
