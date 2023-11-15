@@ -18,7 +18,7 @@ public class GameDataScript : ScriptableObject
     public int fireBonusRate = 1;
     public int normBonusRate = 1;
     public int steelBonusRate = 1;
-    public int noBonusRate = 0;
+    public int noBonusRate = 1;
     
     public void Save()
     {
@@ -56,11 +56,7 @@ public class GameDataScript : ScriptableObject
         balls = 6;
         points = 0;
         pointsToBall = 0;
-        baseBonusRate = 1;
-        fireBonusRate = 1;
-        normBonusRate = 1;
-        steelBonusRate = 1;
-        noBonusRate = 0;
+
     }
 
     public int getBonusType()

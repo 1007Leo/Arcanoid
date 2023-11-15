@@ -59,7 +59,8 @@ public class BlockScript : MonoBehaviour
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    print(collision.gameObject.GetComponent<BallScript>().damage);
+    print(collision.gameObject.GetComponent<BallScript>());
+    if (!collision.gameObject.GetComponent<BallScript>()) return;
     hitsToDestroy -= collision.gameObject.GetComponent<BallScript>().damage;
     if (gameObject.tag.Contains("Mod"))
     {
