@@ -114,9 +114,9 @@ GameObject:
   - component: {fileID: 2470428265534459739}
   - component: {fileID: 6882163157302564663}
   - component: {fileID: 4803266113227739341}
-  - component: {fileID: -6915838316984742482}
+  - component: {fileID: 1392817266806240550}
   m_Layer: 12
-  m_Name: BonusBase
+  m_Name: NormBonus
   m_TagString: Bonus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 455a106eea0ed1940b3b06e8d327bb16, type: 3}
-  m_Color: {r: 0.9838202, g: 1, b: 0.051886797, a: 1}
+  m_Color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -252,7 +252,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.64
---- !u!114 &-6915838316984742482
+--- !u!114 &1392817266806240550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,10 +261,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 867760005505535695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 708c950b4174faf4fbc3eb051dc553df, type: 3}
+  m_Script: {fileID: 11500000, guid: 93afe172d06fe5a41a49da02d5444369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textObject: {fileID: 1434651288169080704}
+  textObject: {fileID: 0}
 --- !u!1 &1434651288169080704
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,16 +331,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3be2416f3681a1f4ea99ad03872488b1, type: 3}
     m_FontSize: 120
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 120
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +100
+  m_Text: Norm

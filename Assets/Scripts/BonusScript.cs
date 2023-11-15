@@ -33,7 +33,6 @@ public class BonusBase : MonoBehaviour
         if (textObject != null)
         {
             textComponent = textObject.GetComponent<Text>();
-            textComponent.text = "+100";
         }
         rb = GetComponent<Rigidbody2D>();
         playerObject = GameObject.FindGameObjectWithTag("Player");

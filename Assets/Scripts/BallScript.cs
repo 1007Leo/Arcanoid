@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallScript : MonoBehaviour
@@ -8,7 +9,7 @@ public class BallScript : MonoBehaviour
     Rigidbody2D rb;
     GameObject playerObject;
     float deltaX;
-
+    public int damage = 1;
     AudioSource audioSrc;
     public AudioClip hitSound;
     public AudioClip loseSound;
