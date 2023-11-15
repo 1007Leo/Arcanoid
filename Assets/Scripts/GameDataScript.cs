@@ -9,7 +9,7 @@ public class GameDataScript : ScriptableObject
     public bool saveLoad;
     public bool music = true;
     public bool sound = true;
-
+ 
     public int level = 1;
     public int balls = 6;
     public int points = 0;
@@ -28,11 +28,6 @@ public class GameDataScript : ScriptableObject
         PlayerPrefs.SetInt("pointsToBall", pointsToBall);
         PlayerPrefs.SetInt("music", music ? 1 : 0);
         PlayerPrefs.SetInt("sound", sound ? 1 : 0);
-        //PlayerPrefs.SetInt("baseBonusRate", baseBonusRate);
-        //PlayerPrefs.SetInt("fireBonusRate", fireBonusRate);
-        //PlayerPrefs.SetInt("normBonusRate", normBonusRate);
-        //PlayerPrefs.SetInt("steelBonusRate", steelBonusRate);
-        //PlayerPrefs.SetInt("noBonusRate", noBonusRate);
     }
 
   public void Load()
@@ -43,11 +38,6 @@ public class GameDataScript : ScriptableObject
         pointsToBall = PlayerPrefs.GetInt("pointsToBall", 6);
         music = PlayerPrefs.GetInt("music", 1) == 1;
         sound = PlayerPrefs.GetInt("sound", 1) == 1;
-        //baseBonusRate = PlayerPrefs.GetInt("baseBonusRate", baseBonusRate);
-        //fireBonusRate = PlayerPrefs.GetInt("fireBonusRate", fireBonusRate);
-        //normBonusRate = PlayerPrefs.GetInt("normBonusRate", normBonusRate);
-        //steelBonusRate = PlayerPrefs.GetInt("steelBonusRate", steelBonusRate);
-        //noBonusRate = PlayerPrefs.GetInt("noBonusRate", noBonusRate);
     }
 
     public void Reset()
@@ -56,7 +46,6 @@ public class GameDataScript : ScriptableObject
         balls = 6;
         points = 0;
         pointsToBall = 0;
-
     }
 
     public int getBonusType()

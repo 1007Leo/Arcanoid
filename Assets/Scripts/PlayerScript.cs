@@ -104,24 +104,24 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    public void CreateSteelBonusObject(Vector3 pos)
-    {
-        if (!steelBonusPrefab) return;
+	public void CreateSteelBonusObject(Vector3 pos)
+	{
+		if (!steelBonusPrefab) return;
 
-        var obj = Instantiate(steelBonusPrefab);
-        var steelBonus = obj.GetComponent<SteelBonus>();
-        steelBonus.transform.position = pos;
-    }
+		var obj = Instantiate(steelBonusPrefab);
+		var steelBonus = obj.GetComponent<SteelBonus>();
+		steelBonus.transform.position = pos;
+	}
 
-    public void CreateNormBonusObject(Vector3 pos)
-    {
-      if (normBonusPrefab != null)
-      {
-        var obj = Instantiate(normBonusPrefab);
-        var normBonus = obj.GetComponent<NormBonus>();
-        normBonus.transform.position = pos;
-      }
-    }
+	public void CreateNormBonusObject(Vector3 pos)
+	{
+		if (normBonusPrefab != null)
+		{
+			var obj = Instantiate(normBonusPrefab);
+			var normBonus = obj.GetComponent<NormBonus>();
+			normBonus.transform.position = pos;
+		}
+	}
 
   void CreateBalls()
     {
@@ -295,15 +295,15 @@ public class PlayerScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            CreateFireBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
+			CreateFireBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-          CreateSteelBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
+			CreateSteelBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-          CreateNormBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
+			CreateNormBonusObject(new Vector3(Camera.main.orthographicSize * 0.1f, Camera.main.orthographicSize * Camera.main.aspect * 0.5f, 0));
         }
   }
 
