@@ -16,9 +16,9 @@ MonoBehaviour:
   music: 0
   sound: 0
   level: 1
-  balls: 6
-  points: 0
-  pointsToBall: 0
+  balls: 1
+  points: 170
+  pointsToBall: 170
   baseBonusRate: 1
   fireBonusRate: 1
   normBonusRate: 1

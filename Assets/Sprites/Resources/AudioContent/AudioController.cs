@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
+    public GameDataScript gameData;
     public Sprite audioOn;
     public Sprite audioOff;
     public GameObject buttonAudio;
@@ -15,6 +16,7 @@ public class AudioController : MonoBehaviour
     public AudioSource audioSource;
 
     public static AudioController instance;
+
     void Start()
     {
         audioSource.PlayOneShot(clip);
