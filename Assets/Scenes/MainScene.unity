@@ -1240,7 +1240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 4f1b6a58e69721149b849d1f9c899db6, type: 2}
   ballVelocityMult: 0.02
-  bluePrefab: {fileID: 8508629328717560356, guid: 179c581b44fcac0459dad19d3f175e31, type: 3}
+  bluePrefab: {fileID: 647851817822921751, guid: 90c6abd3a798e4e4fa2f75458f32c594, type: 3}
   redPrefab: {fileID: 5232108712906055345, guid: 8dde41e9216f14646ae0f7b2513f58d8, type: 3}
   greenPrefab: {fileID: 6686094512166297331, guid: 1c1adc6243850d9419ec27bf2b37c02b, type: 3}
   yellowPrefab: {fileID: 4963671435489067046, guid: fe6d7a06ff5747c4bac2c798cf1ba57c, type: 3}
